@@ -10,7 +10,7 @@ The dataset contains both building geometry and height information major cities 
 All the state data were in [shapefile format](https://wiki.openstreetmap.org/wiki/Microsoft_Building_Footprint_Data#Data_Catalog). This data needs conversion and cleanup to visualise better.  There are the 3 steps to follow.
 
 #### Step 1. Convert shape file to GeoJSON
-- Install `[ogr2ogr](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries)`.
+- Install [ogr2ogr](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries).
 - Download and extract the compressed file. 
 - Use `ogr2ogr` to convert the shapefile to GeoJSON.
 
