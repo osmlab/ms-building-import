@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.0/mapbox-gl-geocoder.css' type='text/css' />
+<div id='map'></div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2h0bmhhIiwiYSI6Ii00dEpEcVEifQ.fbZK6Ju8vXTJOGoZ_D3H9w';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/chtnha/cj3ocx5uq00322so2xytdxojb',
+    center: [-79.4512, 43.6568],
+    zoom: 13,
+    hash: true
+});
+
+map.addControl(new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken
+}));
+
+map.on('load', () => {
+    map.addLayer({
+    "id": "attribution-layer",
+    "type": "circle",
+    "source": {
+        "type": "geojson",
+        "data": {
+            "type": "Feature",
+            "properties": {},
+            "geometry": null
+        }
+    }
+});
+map.style.sourceCaches['attribution-layer']._source.attribution = "&copy; <a href='https://wiki.openstreetmap.org/wiki/Microsoft_Building_Footprint_Data'> Buildings - Microsoft, ODbL 2017 </a>";
+})
+
+</script>
+
+</body>
+</html>
